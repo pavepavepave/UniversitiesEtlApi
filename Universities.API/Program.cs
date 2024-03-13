@@ -1,4 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Universities.DB.DbContexts;
+using Universities.DB.Repository;
 
 namespace Universities.API;
 
@@ -7,6 +10,11 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddDbContext<UniversitiesDbContext>(options =>
+            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+        
+        builder.Services.AddTransient<IUniversityRepository, UniversityRepository>();
         
         builder.Services.AddControllers();
         builder.Services.AddSwaggerGen(c =>
@@ -14,7 +22,6 @@ public class Program
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "UniversitiesAPI", Version = "v1" });
         });
         
-        builder.Services.AddAuthorization();
         var app = builder.Build();
 
         if (app.Environment.IsDevelopment())
@@ -25,8 +32,6 @@ public class Program
 
         app.UseHttpsRedirection();
 
-        app.UseAuthorization();
-        
         app.MapControllers();
 
         app.Run();

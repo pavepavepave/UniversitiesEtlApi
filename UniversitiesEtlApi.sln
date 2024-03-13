@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Universities.API", "Universities.API\Universities.API.csproj", "{4E668CDB-9E37-44B4-B2C1-D33518791351}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Universities.ETL", "Universities.ETL\Universities.ETL.csproj", "{E98A6972-9807-4D1F-9E4B-B07595A9262C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Universities.DB", "Universities.DB\Universities.DB.csproj", "{C494F432-DDF5-4998-8F1C-06057E2B9B95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{4E668CDB-9E37-44B4-B2C1-D33518791351}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E668CDB-9E37-44B4-B2C1-D33518791351}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E668CDB-9E37-44B4-B2C1-D33518791351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E98A6972-9807-4D1F-9E4B-B07595A9262C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E98A6972-9807-4D1F-9E4B-B07595A9262C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E98A6972-9807-4D1F-9E4B-B07595A9262C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E98A6972-9807-4D1F-9E4B-B07595A9262C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C494F432-DDF5-4998-8F1C-06057E2B9B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C494F432-DDF5-4998-8F1C-06057E2B9B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C494F432-DDF5-4998-8F1C-06057E2B9B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C494F432-DDF5-4998-8F1C-06057E2B9B95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
