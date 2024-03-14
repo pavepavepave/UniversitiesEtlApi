@@ -1,4 +1,4 @@
-﻿namespace Universities.ETL.Models;
+﻿namespace Universities.DB.Models;
 
 public sealed class UniversityDto
 {
