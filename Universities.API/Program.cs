@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Universities.DB.DbContexts;
 using Universities.DB.Repository;
+using Universities.ETL;
 
 namespace Universities.API;
 
@@ -14,7 +15,9 @@ public class Program
         builder.Services.AddDbContext<UniversitiesDbContext>(options =>
             options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
         
+        builder.Services.AddHttpClient();
         builder.Services.AddTransient<IUniversityRepository, UniversityRepository>();
+        builder.Services.AddTransient<UniversitiesDataHandler>();
         
         builder.Services.AddControllers();
         builder.Services.AddSwaggerGen(c =>
