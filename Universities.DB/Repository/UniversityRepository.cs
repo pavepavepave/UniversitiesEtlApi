@@ -16,9 +16,10 @@ public sealed class UniversityRepository : IUniversityRepository
 
     public async Task<IEnumerable<UniversityDto>> GetByCountryAndNameAsync(string country, string universityName)
     {
-        var universities = await _db.Universities.ToListAsync();
-        var filterUniversities = universities.Where(u => u.Country == country && u.Name == universityName);
-        return UniversityMapper.ToUniversitiesDto(filterUniversities);
+        var universities = await _db.Universities.
+            Where(u => u.Country == country && u.Name == universityName)
+            .ToListAsync();
+        return UniversityMapper.ToUniversitiesDto(universities);
     }
 
     public async Task AddRangeAsync(IEnumerable<UniversityDto> universities)
