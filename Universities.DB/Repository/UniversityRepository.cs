@@ -14,12 +14,6 @@ public sealed class UniversityRepository : IUniversityRepository
         _db = db;
     }
 
-    public async Task<IEnumerable<UniversityDto>> GetAllAsync()
-    {
-        var universities = await _db.Universities.ToListAsync();
-        return UniversityMapper.ToUniversitiesDto(universities);
-    }
-    
     public async Task<IEnumerable<UniversityDto>> GetByCountryAndNameAsync(string country, string universityName)
     {
         var universities = await _db.Universities.ToListAsync();
