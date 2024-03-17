@@ -30,7 +30,8 @@ public class UniversitiesDataHandler
     /// <returns></returns>
     private async Task<IEnumerable<UniversityJsonModel>> ExtractDataAsync(string country)
     {
-        var response = await _httpClient.GetAsync($"http://universities.hipolabs.com/search?country={country}");
+        var url = $"http://universities.hipolabs.com/search?country={country}";
+        var response = await _httpClient.GetAsync(url);
         response.EnsureSuccessStatusCode();
         var json = await response.Content.ReadAsStringAsync();
         var universities = JsonConvert.DeserializeObject<List<UniversityJsonModel>>(json);
