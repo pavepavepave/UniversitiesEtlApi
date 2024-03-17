@@ -53,6 +53,10 @@ public class UniversitiesDataHandler
         });
     }
 
+    /// <summary>
+    /// Loads university data from remote sources for multiple countries concurrently.
+    /// </summary>
+    /// <param name="maxThreads"></param>
     public async Task LoadData(int maxThreads)
     {
         var semaphore = new SemaphoreSlim(maxThreads);
@@ -62,6 +66,11 @@ public class UniversitiesDataHandler
         await SaveAllData();
     }
     
+    /// <summary>
+    /// Loads university data for a specific country.
+    /// </summary>
+    /// <param name="semaphore"></param>
+    /// <param name="country"></param>
     private async Task LoadDataForCountryAsync(SemaphoreSlim semaphore, string country)
     {
         await semaphore.WaitAsync();
@@ -77,6 +86,9 @@ public class UniversitiesDataHandler
         }
     }
 
+    /// <summary>
+    /// Saves all loaded university data to the database.
+    /// </summary>
     private async Task SaveAllData()
     {
         await _universityRepository.AddRangeAsync(_universities);
